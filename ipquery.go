@@ -25,9 +25,9 @@ func New(len int) *IPQuery {
 	return ipq
 }
 
-func CreateIPV4FromYamlFile(f string, sep string, part int) *IPQuery {
+func CreateIPV4FromYamlFile(file string, sep string, part int) *IPQuery {
 	ipq := New(IPV4)
-	out, err := ioutil.ReadFile(s)
+	out, err := ioutil.ReadFile(file)
 	if err != nil {
 		return nil
 	}
