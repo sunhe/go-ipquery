@@ -3,6 +3,7 @@ package ipquery
 import (
 	"fmt"
 	"gopkg.in/yaml.v2"
+	"io/ioutil"
 	"net"
 	"strings"
 )
@@ -20,6 +21,20 @@ type IPQuery struct {
 func New(len int) *IPQuery {
 	ipq := new(IPQuery)
 	ipq.len = len
+
+	return ipq
+}
+
+func CreateIPV4FromYamlFile(f string, sep string, part int) *IPQuery {
+	ipq := New(IPV4)
+	out, err := ioutil.ReadFile(s)
+	if err != nil {
+		return nil
+	}
+	err = ipq.BuildFromYaml(out, sep, part)
+	if err != nil {
+		return nil
+	}
 
 	return ipq
 }
