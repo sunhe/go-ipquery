@@ -48,7 +48,6 @@ func (ipq *IPQuery) BuildFromYaml(in []byte, sep string, part int) error {
 	}
 	for k, v := range db {
 		ar := strings.Split(k, sep)
-		fmt.Println(len(ar))
 		if len(ar) != part {
 			return fmt.Errorf("%s part is not %d", k, part)
 		}
